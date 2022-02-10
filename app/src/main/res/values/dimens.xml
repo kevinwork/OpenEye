@@ -1,0 +1,10 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <!-- 其他界面标题栏大小 -->
+    <dimen name="actionBarSizeSecondary">44dp</dimen>
+
+    <!-- 常见列表左边or右边，距离屏幕间隔。 -->
+    <dimen name="listSpaceSize">14dp</dimen>
+
+    <dimen name="tabLayoutTextSize">12sp</dimen>
+</resources>

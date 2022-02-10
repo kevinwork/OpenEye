@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">OpenEye</string>
+    <!-- 全局 -->
+    <string name="homepage">首页</string>
+    <string name="community">社区</string>
+    <string name="notification">通知</string>
+    <string name="mine">我的</string>
+    <string name="search">搜索</string>
+    <string name="discovery">发现</string>
+    <string name="recommend">推荐</string>
+    <string name="daily">日报</string>
+
+    <string name="cancel">取消</string>
+
+    <string name="currently_not_supported">该功能即将开放，敬请期待</string>
+
+
+    <!-- 搜索 -->
+    <string name="hot_keywords">热搜关键词</string>
+    <string name="input_keywords_tips">请输入搜索关键字</string>
+    <string name="search_own">搜索视频、作者、用户及标签</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
