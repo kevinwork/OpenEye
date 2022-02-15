@@ -5,9 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import androidx.viewpager2.widget.ViewPager2
+import cn.kevin.openeye.MainActivity
 import cn.kevin.openeye.R
 import cn.kevin.openeye.databinding.FragmentHomeBinding
+import cn.kevin.openeye.extension.setOnClickListener
 import cn.kevin.openeye.ui.home.daily.DailyFragment
 import cn.kevin.openeye.ui.home.discovery.DiscoveryFragment
 import cn.kevin.openeye.ui.home.recommend.RecommendFragment
@@ -20,6 +24,8 @@ class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
     private lateinit var tabLayout: TabLayout
+    private lateinit var ivSearch: ImageView
+    private lateinit var viewPager: ViewPager2
 
     private val crateTitles = ArrayList<String>().apply {
         add(GlobalUtil.getString(R.string.discovery))
@@ -41,7 +47,10 @@ class HomeFragment : Fragment() {
     ): View? {
         binding = FragmentHomeBinding.inflate(layoutInflater, container, false)
         tabLayout = binding.titleBar.tabLayout
-        val viewPager = binding.viewPage
+        setOnClickListener(binding.titleBar.ivSearch) {
+            (requireActivity() as MainActivity).getNavController().navigate(R.id.searchFragment)
+        }
+        viewPager = binding.viewPage
 
         val vpAdapter = VpAdapter(this).apply { addFragments(crateFragments) }
         viewPager.adapter = vpAdapter

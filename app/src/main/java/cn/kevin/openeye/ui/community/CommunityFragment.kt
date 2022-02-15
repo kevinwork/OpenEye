@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import cn.kevin.openeye.R
+import cn.kevin.openeye.extension.logD
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -28,6 +29,7 @@ class CommunityFragment : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+        logD("TAG", "CommunityFragment onCreate")
     }
 
     override fun onCreateView(
