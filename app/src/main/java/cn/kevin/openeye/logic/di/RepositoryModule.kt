@@ -8,14 +8,18 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ActivityComponent
+import dagger.hilt.android.components.ActivityRetainedComponent
 import dagger.hilt.android.scopes.ActivityScoped
+import dagger.hilt.android.scopes.ViewModelScoped
+import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
-@InstallIn(ActivityComponent::class)
+
+@InstallIn(SingletonComponent::class)
 @Module
 object RepositoryModule {
 
-    @ActivityScoped
+    @Singleton
     @Provides
     fun provideSearchRepository(api: SearchService, dao: SearchDao): SearchRepository {
         return SearchRepositoryImpl(api, dao)

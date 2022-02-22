@@ -1,5 +1,6 @@
 package cn.kevin.openeye.ui.home
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -15,6 +16,7 @@ import cn.kevin.openeye.extension.setOnClickListener
 import cn.kevin.openeye.ui.home.daily.DailyFragment
 import cn.kevin.openeye.ui.home.discovery.DiscoveryFragment
 import cn.kevin.openeye.ui.home.recommend.RecommendFragment
+import cn.kevin.openeye.ui.search.SearchActivity
 import cn.kevin.openeye.util.GlobalUtil
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
@@ -48,7 +50,8 @@ class HomeFragment : Fragment() {
         binding = FragmentHomeBinding.inflate(layoutInflater, container, false)
         tabLayout = binding.titleBar.tabLayout
         setOnClickListener(binding.titleBar.ivSearch) {
-            (requireActivity() as MainActivity).getNavController().navigate(R.id.searchFragment)
+            //(requireActivity() as MainActivity).getNavController().navigate(R.id.searchFragment)
+            startActivity(Intent(requireActivity(), SearchActivity::class.java))
         }
         viewPager = binding.viewPage
 

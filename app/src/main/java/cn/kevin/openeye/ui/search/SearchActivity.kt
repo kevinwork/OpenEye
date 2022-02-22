@@ -40,7 +40,7 @@ class SearchActivity : AppCompatActivity() {
     }
 
     private lateinit var binding : ActivitySearchBinding
-    private val viewModel: SearchViewModel by viewModels()
+    private val viewModel by viewModels<SearchViewModel>()
     private lateinit var adapter: HotSearchAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -8,8 +8,9 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.runBlocking
+import javax.inject.Inject
 
-class SearchRepositoryImpl(
+class SearchRepositoryImpl @Inject constructor(
     val api:SearchService,
     val dao:SearchDao
 ) : SearchRepository{
