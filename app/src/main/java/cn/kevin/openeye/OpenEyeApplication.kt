@@ -2,6 +2,7 @@ package cn.kevin.openeye
 
 import android.app.Application
 import android.content.Context
+import com.gyf.immersionbar.ImmersionBar
 import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp

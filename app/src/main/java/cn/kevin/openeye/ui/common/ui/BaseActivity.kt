@@ -1,21 +1,47 @@
 package cn.kevin.openeye.ui.common.ui
 
+import android.content.Context
+import android.os.Bundle
+import android.os.PersistableBundle
+import android.util.AttributeSet
 import android.view.View
 import androidx.annotation.ColorRes
 import androidx.appcompat.app.AppCompatActivity
 import cn.kevin.openeye.R
+import cn.kevin.openeye.extension.logD
+import cn.kevin.openeye.extension.logV
+import com.gyf.immersionbar.ImmersionBar
 
 import com.gyf.immersionbar.ktx.immersionBar
+import com.gyf.immersionbar.ktx.isSupportStatusBarDarkFont
 
 open class BaseActivity : AppCompatActivity() {
 
+    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
+        super.onCreate(savedInstanceState, persistentState)
+    }
+
     override fun setContentView(layoutResID: Int) {
         super.setContentView(layoutResID)
+        /*immersionBar {
+            statusBarColor(R.color.colorPrimaryDark)
+            navigationBarColor(R.color.colorPrimaryDark)
+            //statusBarDarkFont(true, 0.4f)
+        }*/
+
         setStatusBarBackground(R.color.colorPrimaryDark)
+
+
     }
 
     override fun setContentView(layoutView: View) {
         super.setContentView(layoutView)
+       /* immersionBar {
+            titleBar(layoutView)
+            statusBarColor(R.color.colorPrimaryDark)
+            navigationBarColor(R.color.colorPrimaryDark)
+            //statusBarDarkFont(true, 0.4f)
+        }*/
         setStatusBarBackground(R.color.colorPrimaryDark)
     }
 

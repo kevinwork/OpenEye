@@ -20,6 +20,7 @@ import cn.kevin.openeye.R
 import cn.kevin.openeye.databinding.ActivitySearchBinding
 import cn.kevin.openeye.databinding.FragmentSearchBinding
 import cn.kevin.openeye.extension.*
+import cn.kevin.openeye.ui.common.ui.BaseActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect
@@ -33,7 +34,7 @@ import kotlinx.coroutines.launch
  * 安吉取消，退出当前页面，返回主页面
  */
 @AndroidEntryPoint
-class SearchActivity : AppCompatActivity() {
+class SearchActivity : BaseActivity() {
 
     companion object {
         val TAG = "SearchActivity"

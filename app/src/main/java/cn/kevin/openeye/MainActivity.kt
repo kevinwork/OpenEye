@@ -6,6 +6,7 @@ import androidx.navigation.*
 import androidx.navigation.fragment.NavHostFragment
 import cn.kevin.openeye.databinding.ActivityMainBinding
 import cn.kevin.openeye.extension.setOnClickListener
+import cn.kevin.openeye.ui.common.ui.BaseActivity
 import cn.kevin.openeye.ui.common.ui.FixFragmentNavigator
 import cn.kevin.openeye.ui.community.CommunityFragment
 import cn.kevin.openeye.ui.home.HomeFragment
@@ -13,7 +14,7 @@ import cn.kevin.openeye.ui.mine.MineFragment
 import cn.kevin.openeye.ui.notification.NotificationFragment
 import cn.kevin.openeye.ui.search.SearchFragment
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
