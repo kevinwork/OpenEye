@@ -1,6 +1,15 @@
 package cn.kevin.openeye.extension
 
 import android.view.View
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import cn.kevin.openeye.OpenEyeApplication
+
+
+/**
+ * 获取DataStore实例。
+ */
+val dataStore: DataStore<Preferences> = OpenEyeApplication.context.dataStore
 
 /**
  * 批量设置控件点击事件。

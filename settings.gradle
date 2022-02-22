@@ -4,6 +4,20 @@ pluginManagement {
         google()
         mavenCentral()
     }
+    plugins {
+        id 'com.android.application' version '7.1.1'
+        id 'com.android.library' version '7.1.1'
+        id 'org.jetbrains.kotlin.android' version '1.5.10'
+        id 'org.jetbrains.kotlin.kapt' version '1.5.10'
+    }
+    resolutionStrategy {
+        eachPlugin {
+            // Use `resolutionStrategy` to define the Hilt plugin and its coordinate
+            if (requested.id.id == 'dagger.hilt.android.plugin') {
+                useModule("com.google.dagger:hilt-android-gradle-plugin:2.41")
+            }
+        }
+    }
 }
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
