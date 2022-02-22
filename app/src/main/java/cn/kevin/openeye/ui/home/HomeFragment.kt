@@ -52,6 +52,7 @@ class HomeFragment : Fragment() {
         setOnClickListener(binding.titleBar.ivSearch) {
             //(requireActivity() as MainActivity).getNavController().navigate(R.id.searchFragment)
             startActivity(Intent(requireActivity(), SearchActivity::class.java))
+            requireActivity().overridePendingTransition(R.anim.anl_push_up_in, 0)
         }
         viewPager = binding.viewPage
 

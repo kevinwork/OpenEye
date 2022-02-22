@@ -48,6 +48,7 @@ class SearchActivity : AppCompatActivity() {
         binding = ActivitySearchBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
         binding.llSearch.visibleAlphaAnimation(500)
         binding.etQuery.setOnEditorActionListener(EditorActionListener())
         setOnClickListener(binding.tvCancel) {
