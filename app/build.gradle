@@ -3,6 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'org.jetbrains.kotlin.kapt'
     id 'dagger.hilt.android.plugin'
+    id 'org.jetbrains.kotlin.plugin.parcelize'
 }
 
 android {
@@ -87,6 +88,19 @@ dependencies {
     implementation 'com.geyifeng.immersionbar:immersionbar-ktx:3.2.1'
 // fragment快速实现（可选）已废弃
     implementation 'com.geyifeng.immersionbar:immersionbar-components:3.2.1'
+
+    implementation 'com.scwang.smart:refresh-header-material:2.0.0'
+    implementation 'com.scwang.smart:refresh-layout-kernel:2.0.0'
+    implementation 'com.github.zhpanvip:BannerViewPager:3.1.2'
+    implementation 'com.shuyu:GSYVideoPlayer:8.1.2'
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+    //glide
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    kapt 'com.github.bumptech.glide:compiler:4.11.0'
+    implementation 'com.github.bumptech.glide:okhttp3-integration:4.9.0'
+    implementation 'jp.wasabeef:glide-transformations:4.1.0'
+
 
 
 }

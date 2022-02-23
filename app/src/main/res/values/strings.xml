@@ -1,24 +1,40 @@
 <resources>
-    <string name="app_name">OpenEye</string>
     <!-- 全局 -->
+    <string name="app_name">视频精选</string>
     <string name="homepage">首页</string>
     <string name="community">社区</string>
     <string name="notification">通知</string>
     <string name="mine">我的</string>
     <string name="search">搜索</string>
     <string name="discovery">发现</string>
-    <string name="recommend">推荐</string>
+    <string name="commend">推荐</string>
     <string name="daily">日报</string>
-
+    <string name="unknown_error">发生未知错误</string>
     <string name="cancel">取消</string>
     <string name="delete">删除</string>
-
     <string name="currently_not_supported">该功能即将开放，敬请期待</string>
-
+    <string name="advert">广告</string>
+    <string name="plus_follow">+关注</string>
+    <string name="srl_footer_nothing">没有更多数据了</string>
+    <string name="footer_not_more">- The End -</string>
 
     <!-- 搜索 -->
     <string name="hot_keywords">热搜关键词</string>
     <string name="input_keywords_tips">请输入搜索关键字</string>
     <string name="search_own">搜索视频、作者、用户及标签</string>
+
+    <!-- 网络 -->
+    <string name="network_error">网络错误</string>
+    <string name="error_view_tip">点击屏幕重试</string>
+    <string name="json_data_error">数据解析异常</string>
+    <string name="network_connect_error">网络连接异常</string>
+    <string name="network_connect_timeout">网络连接超时</string>
+    <string name="no_route_to_host">无法连接到服务器</string>
+    <string name="network_response_code_error">服务器状态码异常：</string>
+    <string name="error_view_tip_retry">加载失败，点击重试</string>
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- 社区 -->
+    <string name="refresh_commend">刷新推荐</string>
 </resources>

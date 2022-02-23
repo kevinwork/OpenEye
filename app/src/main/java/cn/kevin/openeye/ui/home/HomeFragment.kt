@@ -31,7 +31,7 @@ class HomeFragment : Fragment() {
 
     private val crateTitles = ArrayList<String>().apply {
         add(GlobalUtil.getString(R.string.discovery))
-        add(GlobalUtil.getString(R.string.recommend))
+        add(GlobalUtil.getString(R.string.commend))
         add(GlobalUtil.getString(R.string.daily))
     }
 

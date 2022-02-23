@@ -9,6 +9,7 @@ pluginManagement {
         id 'com.android.library' version '7.1.1'
         id 'org.jetbrains.kotlin.android' version '1.5.10'
         id 'org.jetbrains.kotlin.kapt' version '1.5.10'
+        id "org.jetbrains.kotlin.plugin.parcelize" version "1.5.10"
     }
     resolutionStrategy {
         eachPlugin {
@@ -25,6 +26,7 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
         jcenter()
+        maven { url 'https://www.jitpack.io' }
     }
 }
 rootProject.name = "OpenEye"

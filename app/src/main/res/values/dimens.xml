@@ -7,4 +7,7 @@
     <dimen name="listSpaceSize">14dp</dimen>
 
     <dimen name="tabLayoutTextSize">12sp</dimen>
+
+    <!-- 常见列表封面高度 -->
+    <dimen name="coverSize">183dp</dimen>
 </resources>

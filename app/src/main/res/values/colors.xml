@@ -5,12 +5,16 @@
     <color name="colorPrimaryDark">#fafafa</color>
     <color name="colorAccent">#61f2d4</color>
     <color name="colorTextPrimary">#444444</color>
+    <color name="colorTextPrimaryDark">#333333</color>
     <color name="colorTextSecondary">#888888</color>
     <color name="gray">#ededed</color>
     <color name="grayDark">#adadad</color>
     <color name="blue">#4687d7</color>
 
+    <color name="whiteAlpha80">#33ffffff</color>
+    <color name="blackAlpha20">#cc000000</color>
     <color name="blackAlpha50">#80000000</color>
+    <color name="blackAlpha70">#4d000000</color>
 
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
@@ -19,4 +23,5 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="loading">#cdcdcd</color>
 </resources>
