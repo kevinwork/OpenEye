@@ -3,6 +3,7 @@ package cn.kevin.openeye.logic.di
 import android.os.Build
 import cn.kevin.openeye.extension.logV
 import cn.kevin.openeye.extension.screenPixel
+import cn.kevin.openeye.logic.api.HomePageService
 import cn.kevin.openeye.logic.api.SearchService
 import cn.kevin.openeye.ui.common.callback.GsonTypeAdapterFactory
 import cn.kevin.openeye.util.GlobalUtil
@@ -24,7 +25,7 @@ import javax.inject.Singleton
 @Module
 object NetworkModule {
 
-    private const val BASE_URL = "http://baobab.kaiyanapp.com/"
+    public const val BASE_URL = "http://baobab.kaiyanapp.com/"
 
     @Singleton
     @Provides
@@ -53,6 +54,12 @@ object NetworkModule {
     @Provides
     fun provideSearchService(retrofit: Retrofit): SearchService  {
         return retrofit.create(SearchService::class.java)
+    }
+
+    @Singleton
+    @Provides
+    fun provideHomePageService(retrofit: Retrofit): HomePageService  {
+        return retrofit.create(HomePageService::class.java)
     }
 
 

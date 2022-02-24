@@ -1,7 +1,10 @@
 package cn.kevin.openeye.logic.di
 
+import cn.kevin.openeye.logic.api.HomePageService
 import cn.kevin.openeye.logic.api.SearchService
 import cn.kevin.openeye.logic.db.SearchDao
+import cn.kevin.openeye.logic.repository.HomePageRepository
+import cn.kevin.openeye.logic.repository.HomePageRepositoryImpl
 import cn.kevin.openeye.logic.repository.SearchRepository
 import cn.kevin.openeye.logic.repository.SearchRepositoryImpl
 import dagger.Module
@@ -24,6 +27,13 @@ object RepositoryModule {
     fun provideSearchRepository(api: SearchService, dao: SearchDao): SearchRepository {
         return SearchRepositoryImpl(api, dao)
     }
+
+    @Singleton
+    @Provides
+    fun provideHomePageRepository(api: HomePageService): HomePageRepository {
+        return HomePageRepositoryImpl(api)
+    }
+
 
 
 }

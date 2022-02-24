@@ -13,6 +13,7 @@ import cn.kevin.openeye.MainActivity
 import cn.kevin.openeye.R
 import cn.kevin.openeye.databinding.FragmentHomeBinding
 import cn.kevin.openeye.extension.setOnClickListener
+import cn.kevin.openeye.ui.common.ui.BaseFragment
 import cn.kevin.openeye.ui.home.daily.DailyFragment
 import cn.kevin.openeye.ui.home.discovery.DiscoveryFragment
 import cn.kevin.openeye.ui.home.recommend.RecommendFragment
@@ -69,7 +70,7 @@ class HomeFragment : Fragment() {
 
         private val fragments = mutableListOf<Fragment>()
 
-        fun addFragments(fragment: Array<Fragment>) = fragments.addAll(fragment)
+        fun addFragments(fragment: Array<BaseFragment>) = fragments.addAll(fragment)
 
         override fun getItemCount(): Int {
            return fragments.size

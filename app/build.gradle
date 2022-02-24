@@ -81,6 +81,8 @@ dependencies {
     //implementation "androidx.hilt:hilt-lifecycle-viewmodel:$hilt_view_version"
     kapt "androidx.hilt:hilt-compiler:$hilt_view_version"
 
+    implementation "androidx.paging:paging-runtime:3.0.0"
+
 
     // 基础依赖包，必须要依赖
     implementation 'com.geyifeng.immersionbar:immersionbar:3.2.1'

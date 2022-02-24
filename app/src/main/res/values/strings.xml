@@ -1,6 +1,6 @@
 <resources>
     <!-- 全局 -->
-    <string name="app_name">视频精选</string>
+    <string name="app_name">OpenEye</string>
     <string name="homepage">首页</string>
     <string name="community">社区</string>
     <string name="notification">通知</string>

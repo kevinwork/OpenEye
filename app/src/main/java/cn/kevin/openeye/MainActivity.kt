@@ -13,7 +13,9 @@ import cn.kevin.openeye.ui.home.HomeFragment
 import cn.kevin.openeye.ui.mine.MineFragment
 import cn.kevin.openeye.ui.notification.NotificationFragment
 import cn.kevin.openeye.ui.search.SearchFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : BaseActivity() {
 
     private lateinit var binding: ActivityMainBinding

@@ -1,5 +1,6 @@
 package cn.kevin.openeye.ui.common.ui
 
+import android.app.Activity
 import android.content.Context
 import android.os.Bundle
 import android.os.PersistableBundle
