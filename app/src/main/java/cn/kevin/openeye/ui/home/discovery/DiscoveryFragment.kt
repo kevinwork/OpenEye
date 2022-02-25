@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import cn.kevin.openeye.R
 import cn.kevin.openeye.databinding.FragmentDiscoveryBinding
+import cn.kevin.openeye.databinding.FragmentRefreshLayoutBinding
 import cn.kevin.openeye.extension.logD
 import cn.kevin.openeye.ui.common.callback.RequestLifecycle
 import cn.kevin.openeye.ui.common.ui.BaseFragment
@@ -33,27 +34,43 @@ import kotlinx.coroutines.flow.collectLatest
 @AndroidEntryPoint
 class DiscoveryFragment : BaseFragment(){
 
-    //ui
+   /* //ui
     private lateinit var binding: FragmentDiscoveryBinding
     private lateinit var recyclerView: RecyclerView
     private lateinit var discoveryAdapter: DiscoveryAdapter
 
     //viewModel
-    private val viewModel by viewModels<DiscoveryViewModel>()
+    private val viewModel by viewModels<DiscoveryViewModel>()*/
 
+    private lateinit var binding: FragmentRefreshLayoutBinding
+    private val viewModel: DiscoveryViewModel by viewModels()
+
+    private lateinit var adapter: DiscoveryAdapter
 
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding = FragmentDiscoveryBinding.inflate(layoutInflater, container, false)
+        //val binding = FragmentDiscoveryBinding.inflate(layoutInflater, container, false)
+        binding = FragmentRefreshLayoutBinding.inflate(layoutInflater, container, false)
         return super.onCreateView(binding.root)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding = FragmentDiscoveryBinding.inflate(layoutInflater)
+        adapter = DiscoveryAdapter(this)
+        binding.recyclerView.layoutManager = LinearLayoutManager(activity)
+        binding.recyclerView.adapter = adapter
+        lifecycleScope.launchWhenCreated {
+            viewModel.getPagingData().collectLatest {
+                adapter.submitData(it)
+            }
+        }
+        // 下拉刷新
+        binding.refreshLayout.setOnRefreshListener { adapter.refresh() }
+        addLoadStateListener()
+/*        binding = FragmentDiscoveryBinding.inflate(layoutInflater)
         recyclerView = binding.recyclerView
         discoveryAdapter = DiscoveryAdapter(this)
         recyclerView.layoutManager = LinearLayoutManager(activity)
@@ -63,7 +80,6 @@ class DiscoveryFragment : BaseFragment(){
             viewModel.getPagingData().collectLatest {
                 val ret = Gson().toJson(it)
                 logD("zwz", "response:"+ret)
-
                 discoveryAdapter.submitData(it)
             }
         }
@@ -73,10 +89,12 @@ class DiscoveryFragment : BaseFragment(){
 
         }
         addLoadStateListener()
+        */
+
     }
 
     private fun addLoadStateListener() {
-        discoveryAdapter.addLoadStateListener {
+        adapter.addLoadStateListener {
 
             when (it.refresh) {
                 is LoadState.NotLoading -> {
@@ -118,7 +136,7 @@ class DiscoveryFragment : BaseFragment(){
         binding.refreshLayout.finishRefresh()
         showLoadErrorView(msg ?: GlobalUtil.getString(R.string.unknown_error)) {
             startLoading()
-            discoveryAdapter.refresh()
+            adapter.refresh()
         }
     }
 
