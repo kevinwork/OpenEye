@@ -50,7 +50,7 @@ open class BaseFragment : Fragment(), RequestLifecycle {
     fun onCreateView(view: View): View {
         logD(TAG, "BaseFragment-->onCreateView()")
         rootView = view
-        //loading = view.findViewById(R.id.loading)
+        loading = view.findViewById(R.id.loading)
         return view
     }
 
@@ -69,12 +69,14 @@ open class BaseFragment : Fragment(), RequestLifecycle {
 
     protected fun showLoadErrorView(tip: String, block: View.()->Unit) {
         if (loadErrorView != null) {
+            logD("zwz333","======")
             loadErrorView?.visibility = View.VISIBLE
             return
         }
         if (rootView != null) {
             val viewStub = rootView?.findViewById<ViewStub>(R.id.loadErrorView)
             if (viewStub != null) {
+                logD("zwz22","======")
                 loadErrorView = viewStub.inflate()
                 val loadText = loadErrorView?.findViewById<TextView>(R.id.loadErrorText)
                 loadText?.text = tip

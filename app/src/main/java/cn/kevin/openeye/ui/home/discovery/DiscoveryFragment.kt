@@ -21,6 +21,7 @@ import cn.kevin.openeye.util.ResponseHandler
 import com.google.gson.Gson
 import com.scwang.smart.refresh.layout.constant.RefreshState
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.collectLatest
 
 
@@ -60,19 +61,26 @@ class DiscoveryFragment : BaseFragment(){
 
         lifecycleScope.launchWhenCreated {
             viewModel.getPagingData().collectLatest {
-                logD("zwz", "response:"+Gson().toJson(it))
+                val ret = Gson().toJson(it)
+                logD("zwz", "response:"+ret)
+
                 discoveryAdapter.submitData(it)
             }
         }
-        binding.refreshLayout.setOnClickListener{
+        binding.refreshLayout.setOnRefreshListener{
+            logD("zwz", "refresh....")
             discoveryAdapter.refresh()
+
         }
+        addLoadStateListener()
     }
 
     private fun addLoadStateListener() {
         discoveryAdapter.addLoadStateListener {
+
             when (it.refresh) {
                 is LoadState.NotLoading -> {
+                    logD("zwz0", "LoadState.NotLoading")
                     loadFinished()
                     // 到了最后一页，显示 “The End” NoStatusFooter
                     if (it.source.append.endOfPaginationReached) {
@@ -85,11 +93,13 @@ class DiscoveryFragment : BaseFragment(){
                     }
                 }
                 is LoadState.Loading -> {
+                    logD("zwz0", "LoadState.Loading")
                     if (binding.refreshLayout.state != RefreshState.Refreshing) {
                         startLoading()
                     }
                 }
                 is LoadState.Error -> {
+                    logD("zwz0", "LoadState.error")
                     val state = it.refresh as LoadState.Error
                     loadFailed(ResponseHandler.getFailureTips(state.error))
                 }
