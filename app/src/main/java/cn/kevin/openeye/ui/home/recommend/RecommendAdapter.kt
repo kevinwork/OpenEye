@@ -18,6 +18,7 @@ import cn.kevin.openeye.extension.*
 import cn.kevin.openeye.logic.model.HomePageRecommend
 import cn.kevin.openeye.ui.common.holder.*
 import cn.kevin.openeye.ui.home.daily.DailyAdapter
+import cn.kevin.openeye.ui.newdetail.NewDetailActivity
 import cn.kevin.openeye.util.ActionUrlUtil
 import cn.kevin.openeye.util.GlobalUtil
 import com.shuyu.gsyvideoplayer.GSYVideoManager
@@ -79,10 +80,10 @@ class RecommendAdapter(val fragment: RecommendFragment) : PagingDataAdapter<Home
                 if (item.data.content.data.ad) holder.tvLabel.visible() else holder.tvLabel.gone()
                 if (item.data.content.data.library == DailyAdapter.DAILY_LIBRARY_TYPE) holder.ivChoiceness.visible() else holder.ivChoiceness.gone()
                 holder.ivShare.setOnClickListener {
-                    // showDialogShare(fragment.activity, "${item.data.content.data.title}：${item.data.content.data.webUrl.raw}")
+                     showDialogShare(fragment.activity, "${item.data.content.data.title}：${item.data.content.data.webUrl.raw}")
                 }
                 holder.itemView.setOnClickListener {
-                    /*item.data.content.data.run {
+                    item.data.content.data.run {
                         if (ad || author == null) {
                             NewDetailActivity.start(fragment.activity, id)
                         } else {
@@ -90,7 +91,7 @@ class RecommendAdapter(val fragment: RecommendFragment) : PagingDataAdapter<Home
                                 fragment.activity, NewDetailActivity.VideoInfo(id, playUrl, title, description, category, library, consumption, cover, author, webUrl)
                             )
                         }
-                    }*/
+                    }
                 }
             }
             is BannerViewHolder -> {
@@ -122,14 +123,14 @@ class RecommendAdapter(val fragment: RecommendFragment) : PagingDataAdapter<Home
                 holder.tvTitle.text = item.data.title
                 holder.tvVideoDuration.text = item.data.duration.conversionVideoDuration()
                 holder.ivShare.setOnClickListener {
-                    // showDialogShare(fragment.activity, "${item.data.title}：${item.data.webUrl.raw}")
+                     showDialogShare(fragment.activity, "${item.data.title}：${item.data.webUrl.raw}")
                 }
                 holder.itemView.setOnClickListener {
-                    /*item.data.run {
+                    item.data.run {
                         NewDetailActivity.start(
                             fragment.activity, NewDetailActivity.VideoInfo(id, playUrl, title, description, category, library, consumption, cover, author, webUrl)
                         )
-                    }*/
+                    }
                 }
             }
             is UgcSelectedCardCollectionViewHolder -> {

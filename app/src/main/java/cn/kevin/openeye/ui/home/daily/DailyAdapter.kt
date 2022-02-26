@@ -12,6 +12,8 @@ import cn.kevin.openeye.extension.*
 import cn.kevin.openeye.logic.model.Daily
 import cn.kevin.openeye.ui.common.holder.*
 import cn.kevin.openeye.ui.home.recommend.RecommendAdapter
+import cn.kevin.openeye.ui.login.LoginActivity
+import cn.kevin.openeye.ui.newdetail.NewDetailActivity
 import cn.kevin.openeye.util.ActionUrlUtil
 import cn.kevin.openeye.util.GlobalUtil
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation
@@ -30,7 +32,7 @@ class DailyAdapter(val fragment: DailyFragment) : PagingDataAdapter<Daily.Item, 
                 if (item.data.actionUrl != null) holder.ivInto5.visible() else holder.ivInto5.gone()
                 if (item.data.follow != null) holder.tvFollow.visible() else holder.tvFollow.gone()
                 holder.tvFollow.setOnClickListener {
-                    //LoginActivity.start(fragment.activity)
+                    LoginActivity.start(fragment.activity)
                 }
                 setOnClickListener(holder.tvTitle5, holder.ivInto5) {
                     ActionUrlUtil.process(fragment, item.data.actionUrl, item.data.text)
@@ -82,17 +84,17 @@ class DailyAdapter(val fragment: DailyFragment) : PagingDataAdapter<Daily.Item, 
                 if (item.data.content.data.ad) holder.tvLabel.visible() else holder.tvLabel.gone()
                 if (item.data.content.data.library == DAILY_LIBRARY_TYPE) holder.ivChoiceness.visible() else holder.ivChoiceness.gone()
                 holder.ivShare.setOnClickListener {
-                    //showDialogShare(fragment.activity, "${item.data.content.data.title}：${item.data.content.data.webUrl.raw}")
+                    showDialogShare(fragment.activity, "${item.data.content.data.title}：${item.data.content.data.webUrl.raw}")
                 }
                 holder.itemView.setOnClickListener {
                     item.data.content.data.run {
-                        /*if (ad || author == null) {
+                        if (ad || author == null) {
                             NewDetailActivity.start(fragment.activity, id)
                         } else {
                             NewDetailActivity.start(
                                 fragment.activity, NewDetailActivity.VideoInfo(id, playUrl, title, description, category, library, consumption, cover, author, webUrl)
                             )
-                        }*/
+                        }
                     }
                 }
             }

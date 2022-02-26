@@ -2,11 +2,9 @@ package cn.kevin.openeye.logic.di
 
 import cn.kevin.openeye.logic.api.HomePageService
 import cn.kevin.openeye.logic.api.SearchService
+import cn.kevin.openeye.logic.api.VideoService
 import cn.kevin.openeye.logic.db.SearchDao
-import cn.kevin.openeye.logic.repository.HomePageRepository
-import cn.kevin.openeye.logic.repository.HomePageRepositoryImpl
-import cn.kevin.openeye.logic.repository.SearchRepository
-import cn.kevin.openeye.logic.repository.SearchRepositoryImpl
+import cn.kevin.openeye.logic.repository.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -32,6 +30,12 @@ object RepositoryModule {
     @Provides
     fun provideHomePageRepository(api: HomePageService): HomePageRepository {
         return HomePageRepositoryImpl(api)
+    }
+
+    @Singleton
+    @Provides
+    fun provideVideoRepository(api: VideoService): VideoRepository {
+        return VideoRepositoryImpl(api)
     }
 
 

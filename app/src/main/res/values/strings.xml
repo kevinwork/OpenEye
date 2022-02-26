@@ -1,6 +1,6 @@
 <resources>
     <!-- 全局 -->
-    <string name="app_name">OpenEye</string>
+    <string name="app_name">视频精选</string>
     <string name="homepage">首页</string>
     <string name="community">社区</string>
     <string name="notification">通知</string>
@@ -17,6 +17,14 @@
     <string name="plus_follow">+关注</string>
     <string name="srl_footer_nothing">没有更多数据了</string>
     <string name="footer_not_more">- The End -</string>
+    <string name="jump_page_unknown_error">跳转界面出现未知异常</string>
+    <string name="share">分享</string>
+    <string name="your_phone_does_not_install_qq">您的手机还没有安装QQ</string>
+    <string name="your_phone_does_not_install_wechat">您的手机还没有安装微信</string>
+    <string name="your_phone_does_not_install_weibo">您的手机还没有安装微博</string>
+    <string name="your_phone_does_not_install_qq_zone">您的手机还没有安装QQ空间</string>
+    <string name="show_conversation">查看对话</string>
+    <string name="reply">回复</string>
 
     <!-- 搜索 -->
     <string name="hot_keywords">热搜关键词</string>
@@ -35,6 +43,27 @@
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <string name="cache">缓存</string>
+    <string name="favorites">收藏</string>
+
+    <!-- 视频详情 -->
+    <string name="pull_down_close_page">下 拉 关 闭 页 面</string>
+    <string name="click_send_comment">点 击 发 表 你 的 评 论</string>
+    <string name="reply_target">回复 @%1$s</string>
+
     <!-- 社区 -->
     <string name="refresh_commend">刷新推荐</string>
+
+    <!-- 分享 -->
+    <string name="wechat">微信</string>
+    <string name="weibo">微博</string>
+    <string name="qq_friends">QQ</string>
+    <string name="qq_zone">QQ空间</string>
+    <string name="more">更多</string>
+    <string name="share_unknown_error">分享出现未知异常</string>
+    <string name="share_to">分享到</string>
+
+    <!-- 时间和日期 -->
+    <string name="days_ago">天前</string>
+    <string name="weeks_ago">周前</string>
 </resources>

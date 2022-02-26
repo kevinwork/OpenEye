@@ -26,9 +26,7 @@ import cn.kevin.openeye.Const.ItemViewType.Companion.UNKNOWN
 import cn.kevin.openeye.Const.ItemViewType.Companion.VIDEO_SMALL_CARD
 import cn.kevin.openeye.R
 import cn.kevin.openeye.extension.inflate
-import cn.kevin.openeye.logic.model.Daily
-import cn.kevin.openeye.logic.model.Discovery
-import cn.kevin.openeye.logic.model.HomePageRecommend
+import cn.kevin.openeye.logic.model.*
 import cn.kevin.openeye.ui.home.discovery.DiscoveryAdapter
 
 import com.shuyu.gsyvideoplayer.video.base.GSYVideoPlayer
@@ -320,7 +318,7 @@ object RecyclerViewHelp {
         return if (item.type == "textCard") getTextCardType(item.data.type) else getItemViewType(item.type, item.data.dataType)
     }
 
-    /*fun getItemViewType(item: Follow.Item): Int {
+    fun getItemViewType(item: Follow.Item): Int {
         return if (item.type == "textCard") getTextCardType(item.data.type) else getItemViewType(item.type, item.data.dataType)
     }
 
@@ -330,6 +328,6 @@ object RecyclerViewHelp {
 
     fun getItemViewType(item: VideoReplies.Item): Int {
         return if (item.type == "textCard") getTextCardType(item.data.type) else getItemViewType(item.type, item.data.dataType)
-    }*/
+    }
 
 }

@@ -11,12 +11,19 @@ import androidx.appcompat.app.AppCompatActivity
 import cn.kevin.openeye.R
 import cn.kevin.openeye.extension.logD
 import cn.kevin.openeye.extension.logV
+import cn.kevin.openeye.extension.showDialogShare
+import cn.kevin.openeye.util.ShareUtil
 import com.gyf.immersionbar.ImmersionBar
 
 import com.gyf.immersionbar.ktx.immersionBar
 import com.gyf.immersionbar.ktx.isSupportStatusBarDarkFont
 
 open class BaseActivity : AppCompatActivity() {
+
+    /**
+     * 日志输出标志
+     */
+    protected val TAG: String = this.javaClass.simpleName
 
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
         super.onCreate(savedInstanceState, persistentState)
@@ -59,5 +66,29 @@ open class BaseActivity : AppCompatActivity() {
             fitsSystemWindows(true)
         }
     }
+
+    protected open fun setupViews() {
+
+    }
+
+    /**
+     * 调用系统原生分享
+     *
+     * @param shareContent 分享内容
+     * @param shareType SHARE_MORE=0，SHARE_QQ=1，SHARE_WECHAT=2，SHARE_WEIBO=3，SHARE_QQZONE=4
+     */
+    protected fun share(shareContent: String, shareType: Int) {
+        ShareUtil.share(this, shareContent, shareType)
+    }
+
+    /**
+     * 弹出分享对话框
+     *
+     * @param shareContent 分享内容
+     */
+    protected fun showDialogShare(shareContent: String) {
+        showDialogShare(this, shareContent)
+    }
+
 
 }

@@ -10,4 +10,10 @@
 
     <!-- 常见列表封面高度 -->
     <dimen name="coverSize">183dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!-- 视频详情页，播放器高度 -->
+    <dimen name="videoPlayerSize">202dp</dimen>
 </resources>

@@ -5,6 +5,7 @@ import cn.kevin.openeye.extension.logV
 import cn.kevin.openeye.extension.screenPixel
 import cn.kevin.openeye.logic.api.HomePageService
 import cn.kevin.openeye.logic.api.SearchService
+import cn.kevin.openeye.logic.api.VideoService
 import cn.kevin.openeye.ui.common.callback.GsonTypeAdapterFactory
 import cn.kevin.openeye.util.GlobalUtil
 import com.google.gson.GsonBuilder
@@ -60,6 +61,12 @@ object NetworkModule {
     @Provides
     fun provideHomePageService(retrofit: Retrofit): HomePageService  {
         return retrofit.create(HomePageService::class.java)
+    }
+
+    @Singleton
+    @Provides
+    fun provideVideoService(retrofit: Retrofit): VideoService {
+        return retrofit.create(VideoService::class.java)
     }
 
 
