@@ -1,7 +1,9 @@
 package cn.kevin.openeye.logic.api;
 
 import cn.kevin.openeye.logic.di.NetworkModule
+import cn.kevin.openeye.logic.model.Daily
 import cn.kevin.openeye.logic.model.Discovery
+import cn.kevin.openeye.logic.model.HomePageRecommend
 import retrofit2.http.GET
 import retrofit2.http.Url
 
@@ -10,6 +12,18 @@ interface HomePageService {
 
     @GET
     suspend fun getDiscovery(@Url url: String): Discovery
+
+    /**
+     * 首页-推荐列表
+     */
+    @GET
+    suspend fun getHomePageRecommend(@Url url: String): HomePageRecommend
+
+    /**
+     * 首页-日报列表
+     */
+    @GET
+    suspend fun getDaily(@Url url: String): Daily
 
     companion object {
 

@@ -1,11 +1,9 @@
-package cn.kevin.openeye.logic.repository
+package cn.kevin.openeye.ui.home.discovery
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import cn.kevin.openeye.extension.logD
 import cn.kevin.openeye.logic.api.HomePageService
 import cn.kevin.openeye.logic.model.Discovery
-import com.google.gson.Gson
 
 class DiscoveryPagingSource(private val homePageService: HomePageService) : PagingSource<String, Discovery.Item>() {
 

@@ -25,7 +25,7 @@ import com.shuyu.gsyvideoplayer.listener.GSYSampleCallBack
 import com.shuyu.gsyvideoplayer.video.base.GSYVideoPlayer
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation
 
-class CommendAdapter(val fragment: RecommendFragment) : PagingDataAdapter<HomePageRecommend.Item,RecyclerView.ViewHolder>(DIFF_CALLBACK) {
+class RecommendAdapter(val fragment: RecommendFragment) : PagingDataAdapter<HomePageRecommend.Item,RecyclerView.ViewHolder>(DIFF_CALLBACK) {
 
     override fun getItemViewType(position: Int) = RecyclerViewHelp.getItemViewType(getItem(position)!!)
 
@@ -251,7 +251,7 @@ class CommendAdapter(val fragment: RecommendFragment) : PagingDataAdapter<HomePa
 
 
     companion object {
-        const val TAG = "CommendAdapter"
+        const val TAG = "RecommendAdapter"
 
         private val DIFF_CALLBACK = object : ItemCallback<HomePageRecommend.Item>() {
             override fun areItemsTheSame(oldItem: HomePageRecommend.Item, newItem: HomePageRecommend.Item): Boolean {

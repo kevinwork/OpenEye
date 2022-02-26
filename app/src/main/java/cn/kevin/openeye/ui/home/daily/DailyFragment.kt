@@ -5,51 +5,114 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
+import androidx.paging.LoadState
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import cn.kevin.openeye.R
+import cn.kevin.openeye.databinding.FragmentDiscoveryBinding
+import cn.kevin.openeye.extension.logD
 import cn.kevin.openeye.ui.common.ui.BaseFragment
+import cn.kevin.openeye.ui.home.recommend.RecommendAdapter
+import cn.kevin.openeye.ui.home.recommend.RecommendFragment
+import cn.kevin.openeye.ui.home.recommend.RecommendViewModel
+import cn.kevin.openeye.util.GlobalUtil
+import cn.kevin.openeye.util.ResponseHandler
+import com.scwang.smart.refresh.layout.constant.RefreshState
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collectLatest
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [DailyFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+@AndroidEntryPoint
 class DailyFragment : BaseFragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    //ui
+    private lateinit var binding: FragmentDiscoveryBinding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var adapter: DailyAdapter
+
+    //viewModel
+    private val viewModel by viewModels<DailyViewModel>()
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_daily, container, false)
+        binding = FragmentDiscoveryBinding.inflate(layoutInflater, container, false)
+        return super.onCreateView(binding.root)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        adapter = DailyAdapter(this)
+        binding.recyclerView.layoutManager = LinearLayoutManager(activity)
+        binding.recyclerView.adapter = adapter
+
+        lifecycleScope.launchWhenCreated {
+            viewModel.getPagingData().collectLatest {
+                //val ret = Gson().toJson(it)
+                //logD("zwz", "response:"+ret)
+                adapter.submitData(it)
+            }
+        }
+        binding.refreshLayout.setOnRefreshListener{
+            logD("zwz", "refresh....")
+            adapter.refresh()
+
+        }
+        addLoadStateListener()
+    }
+
+    private fun addLoadStateListener() {
+        adapter.addLoadStateListener {
+
+            when (it.refresh) {
+                is LoadState.NotLoading -> {
+                    logD("zwz0", "LoadState.NotLoading")
+                    loadFinished()
+                    // 到了最后一页，显示 “The End” NoStatusFooter
+                    if (it.source.append.endOfPaginationReached) {
+                        // 显示
+                        binding.refreshLayout.setEnableLoadMore(true)
+                        binding.refreshLayout.finishLoadMoreWithNoMoreData()
+                    } else {
+                        // 不显示
+                        binding.refreshLayout.setEnableLoadMore(false)
+                    }
+                }
+                is LoadState.Loading -> {
+                    logD("zwz0", "LoadState.Loading")
+                    if (binding.refreshLayout.state != RefreshState.Refreshing) {
+                        startLoading()
+                    }
+                }
+                is LoadState.Error -> {
+                    logD("zwz0", "LoadState.error")
+                    val state = it.refresh as LoadState.Error
+                    loadFailed(ResponseHandler.getFailureTips(state.error))
+                }
+            }
+        }
+    }
+
+    override fun loadFinished() {
+        super.loadFinished()
+        binding.refreshLayout.finishRefresh()
+    }
+
+
+    override fun loadFailed(msg: String?) {
+        super.loadFailed(msg)
+        binding.refreshLayout.finishRefresh()
+        showLoadErrorView(msg ?: GlobalUtil.getString(R.string.unknown_error)) {
+            startLoading()
+            adapter.refresh()
+        }
     }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment DailyFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
         fun newInstance() =
             DailyFragment()
     }
