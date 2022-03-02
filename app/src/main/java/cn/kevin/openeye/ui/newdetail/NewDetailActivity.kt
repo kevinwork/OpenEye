@@ -201,11 +201,13 @@ class NewDetailActivity : BaseActivity() {
     }
 
     private fun startVideoPlayer() {
+        logD(TAG, "startVideoPlayer")
         viewModel.videoInfoData?.run {
             // 将视频封面图片，设置为整个视频详情页的模糊背景，一种沉浸式的体验
             binding.ivBlurredBg.load(cover.blurred)
             // 评论数
             binding.tvReplyCount.text = consumption.replyCount.toString()
+            logD(TAG, "startVideoPlayer ====2")
             binding.videoPlayer.startPlay()
         }
     }

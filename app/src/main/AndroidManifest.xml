@@ -47,6 +47,8 @@
 
         <activity
             android:name=".ui.newdetail.NewDetailActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
+            android:launchMode="singleTop"
             android:exported="false" />
     </application>
 

@@ -84,6 +84,7 @@ class RecommendAdapter(val fragment: RecommendFragment) : PagingDataAdapter<Home
                 }
                 holder.itemView.setOnClickListener {
                     item.data.content.data.run {
+                        logD(TAG, "FollowCardViewHolder = $id, $playUrl, $description, $category")
                         if (ad || author == null) {
                             NewDetailActivity.start(fragment.activity, id)
                         } else {

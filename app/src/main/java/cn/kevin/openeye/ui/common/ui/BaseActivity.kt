@@ -5,6 +5,7 @@ import android.content.Context
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.util.AttributeSet
+import android.util.Log
 import android.view.View
 import androidx.annotation.ColorRes
 import androidx.appcompat.app.AppCompatActivity
@@ -27,6 +28,7 @@ open class BaseActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
         super.onCreate(savedInstanceState, persistentState)
+        Log.d(TAG, "onCreate: ")
     }
 
     override fun setContentView(layoutResID: Int) {
@@ -38,6 +40,7 @@ open class BaseActivity : AppCompatActivity() {
         }*/
 
         setStatusBarBackground(R.color.colorPrimaryDark)
+        setupViews()
 
 
     }
@@ -51,6 +54,7 @@ open class BaseActivity : AppCompatActivity() {
             //statusBarDarkFont(true, 0.4f)
         }*/
         setStatusBarBackground(R.color.colorPrimaryDark)
+        setupViews()
     }
 
     /**

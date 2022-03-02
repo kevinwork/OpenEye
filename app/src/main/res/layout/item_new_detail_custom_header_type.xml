@@ -218,7 +218,7 @@
 
     <cn.kevin.openeye.ui.common.view.TypefaceTextView
         android:id="@+id/tvFollow"
-        style="@style/Theme.VideoCollections.FollowTextView"
+        style="@style/Theme.OpenEye.FollowTextView"
         android:layout_marginEnd="13dp"
         android:background="@drawable/shape_follow_radius_white_4dp_bg"
         android:textColor="@color/white"
