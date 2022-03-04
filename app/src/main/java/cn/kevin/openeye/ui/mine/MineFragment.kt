@@ -1,60 +1,41 @@
 package cn.kevin.openeye.ui.mine
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import cn.kevin.openeye.R
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+import cn.kevin.openeye.databinding.FragmentMineBinding
+import cn.kevin.openeye.ui.common.ui.BaseFragment
+import cn.kevin.openeye.util.GlobalUtil
 
 /**
- * A simple [Fragment] subclass.
- * Use the [MineFragment.newInstance] factory method to
- * create an instance of this fragment.
+ * 我的界面。
  */
-class MineFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+class MineFragment : BaseFragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    lateinit var binding: FragmentMineBinding
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_mine, container, false)
+    ): View {
+        binding = FragmentMineBinding.inflate(inflater, container, false)
+        return super.onCreateView(binding.root)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        // Version %1$s， 1 代表是第一个参数 %s 代表字符串
+        binding.tvVersionNumber.text = String.format(
+            GlobalUtil.getString(R.string.version_show),
+            GlobalUtil.eyepetizerVersionName
+        )
     }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment MineFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            MineFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+
+        fun newInstance() = MineFragment()
     }
 }

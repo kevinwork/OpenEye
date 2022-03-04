@@ -16,4 +16,7 @@
 
     <!-- 视频详情页，播放器高度 -->
     <dimen name="videoPlayerSize">202dp</dimen>
+
+    <!-- 常见界面标题栏大小 -->
+    <dimen name="actionBarSize">48dp</dimen>
 </resources>

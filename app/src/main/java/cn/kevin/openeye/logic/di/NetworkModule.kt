@@ -3,9 +3,7 @@ package cn.kevin.openeye.logic.di
 import android.os.Build
 import cn.kevin.openeye.extension.logV
 import cn.kevin.openeye.extension.screenPixel
-import cn.kevin.openeye.logic.api.HomePageService
-import cn.kevin.openeye.logic.api.SearchService
-import cn.kevin.openeye.logic.api.VideoService
+import cn.kevin.openeye.logic.api.*
 import cn.kevin.openeye.ui.common.callback.GsonTypeAdapterFactory
 import cn.kevin.openeye.util.GlobalUtil
 import com.google.gson.GsonBuilder
@@ -62,6 +60,20 @@ object NetworkModule {
     fun provideHomePageService(retrofit: Retrofit): HomePageService  {
         return retrofit.create(HomePageService::class.java)
     }
+
+
+    @Singleton
+    @Provides
+    fun provideCommunityService(retrofit: Retrofit): CommunityService {
+        return retrofit.create(CommunityService::class.java)
+    }
+
+    @Singleton
+    @Provides
+    fun provideNotificationService(retrofit: Retrofit): NotificationService {
+        return retrofit.create(NotificationService::class.java)
+    }
+
 
     @Singleton
     @Provides

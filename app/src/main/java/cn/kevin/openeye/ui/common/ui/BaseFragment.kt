@@ -23,7 +23,7 @@ open class BaseFragment : Fragment(), RequestLifecycle {
      */
     lateinit var activity: Activity
 
-    private var rootView:View? = null
+    protected var rootView:View? = null
 
     private var loadErrorView: View? = null
 

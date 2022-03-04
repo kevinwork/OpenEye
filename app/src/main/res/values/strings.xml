@@ -7,8 +7,9 @@
     <string name="mine">我的</string>
     <string name="search">搜索</string>
     <string name="discovery">发现</string>
-    <string name="commend">推荐</string>
+    <string name="recommend">推荐</string>
     <string name="daily">日报</string>
+    <string name="follow">关注</string>
     <string name="unknown_error">发生未知错误</string>
     <string name="cancel">取消</string>
     <string name="delete">删除</string>
@@ -25,6 +26,15 @@
     <string name="your_phone_does_not_install_qq_zone">您的手机还没有安装QQ空间</string>
     <string name="show_conversation">查看对话</string>
     <string name="reply">回复</string>
+    <string name="push">推送</string>
+    <string name="interaction">互动</string>
+    <string name="inbox">私信</string>
+    <string name="slogan_two">Daily appetizersfor your eyes. Bon eyepétit.</string>
+    <string name="slogan_description_two">每日精选视频推介，让你大开眼界。</string>
+    <string name="request_permission_picture_processing">需要存储权限来处理您的图片信息</string>
+    <string name="request_permission_access_phone_info">开眼视频推荐和观看记录等功能，需要访问手机识别码等信息</string>
+    <string name="ok">确定</string>
+    <string name="settings">设置</string>
 
     <!-- 搜索 -->
     <string name="hot_keywords">热搜关键词</string>
@@ -52,7 +62,13 @@
     <string name="reply_target">回复 @%1$s</string>
 
     <!-- 社区 -->
-    <string name="refresh_commend">刷新推荐</string>
+    <string name="refresh_recommend">刷新推荐</string>
+    <string name="choiceness">精选</string>
+    <string name="theme_square">主题创作广场</string>
+    <string name="release_works_daily">发布你的作品和日常</string>
+    <string name="image_size_error">图片尺寸异常</string>
+    <string name="guide_login_tips_four">点击登录后可关注主题和作者</string>
+    <string name="release">发布：</string>
 
     <!-- 分享 -->
     <string name="wechat">微信</string>
@@ -66,4 +82,27 @@
     <!-- 时间和日期 -->
     <string name="days_ago">天前</string>
     <string name="weeks_ago">周前</string>
+
+    <!-- 登录 -->
+    <string name="guide_login_tips_three">别错过重要的信息</string>
+    <string name="guide_login_tips_two">登录后即可查看评论回复、点赞及关注等通知信息</string>
+    <string name="login">登录</string>
+    <string name="login_tips">登录后即可关注作者、\n发表评论、同步收藏视频和播放记录</string>
+    <string name="input_iphone_or_email_tips">请输入手机号/邮箱地址</string>
+    <string name="input_password_tips">请输入密码</string>
+    <string name="user_register">用户注册</string>
+    <string name="author_login">作者登录</string>
+    <string name="login_register_agree_tips">登录或注册即同意开眼</string>
+    <string name="user_service_agreement">用户服务协议</string>
+    <string name="forgot_password">找回密码</string>
+
+    <!-- 我的 -->
+    <string name="guide_login_tips">点击登录即可评论及发布内容</string>
+    <string name="my_follow">我的关注</string>
+    <string name="watch_record">观看记录</string>
+    <string name="notification_toggle">通知开关</string>
+    <string name="my_badge">我的徽章</string>
+    <string name="feedback">意见反馈</string>
+    <string name="want_contribute">我要投稿</string>
+    <string name="version_show">Version %1$s</string>
 </resources>

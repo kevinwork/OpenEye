@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="53dp"
     android:paddingHorizontal="@dimen/listSpaceSize"
-    tools:context=".ui.homepage.discovery.DiscoveryFragment"
+    tools:context=".ui.home.discovery.DiscoveryFragment"
     tools:visibility="visible">
 
     <View
@@ -30,7 +30,7 @@
             android:elevation="5dp"
             android:gravity="center"
             android:paddingHorizontal="12dp"
-            android:text="@string/refresh_commend"
+            android:text="@string/refresh_recommend"
             android:textColor="@color/white"
             android:textSize="14sp"
             app:typeface="fzdb1Typeface" />

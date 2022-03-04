@@ -1,8 +1,6 @@
 package cn.kevin.openeye.logic.di
 
-import cn.kevin.openeye.logic.api.HomePageService
-import cn.kevin.openeye.logic.api.SearchService
-import cn.kevin.openeye.logic.api.VideoService
+import cn.kevin.openeye.logic.api.*
 import cn.kevin.openeye.logic.db.SearchDao
 import cn.kevin.openeye.logic.repository.*
 import dagger.Module
@@ -36,6 +34,22 @@ object RepositoryModule {
     @Provides
     fun provideVideoRepository(api: VideoService): VideoRepository {
         return VideoRepositoryImpl(api)
+    }
+
+    @Singleton
+    @Provides
+    fun provideCommunityRepository(
+        api: CommunityService,
+    ): CommunityRepository {
+        return CommunityRepositoryImpl(api)
+    }
+
+    @Singleton
+    @Provides
+    fun provideNotificationRepository(
+        api: NotificationService,
+    ): NotificationRepository {
+        return NotificationRepositoryImpl(api)
     }
 
 
