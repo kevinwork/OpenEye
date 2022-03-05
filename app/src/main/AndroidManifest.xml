@@ -17,10 +17,7 @@
         android:roundIcon="@mipmap/tea"
         android:supportsRtl="true"
         android:theme="@style/Theme.OpenEye">
-        <activity
-            android:name=".ui.login.LoginActivity"
-            android:exported="false"
-            android:label="@string/app_name" />
+
         <!-- 关于全面屏与刘海，状态栏配置相关 -->
         <meta-data
             android:name="android.max_aspect"
@@ -33,10 +30,7 @@
             android:value="portrait|landscape" />
 
         <activity
-            android:name=".ui.search.SearchActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
+            android:name=".ui.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -46,10 +40,26 @@
         </activity>
 
         <activity
+            android:name=".ui.search.SearchActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".ui.login.LoginActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".ui.MainActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
+            android:exported="false" />
+
+        <activity
             android:name=".ui.newdetail.NewDetailActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:launchMode="singleTop"
             android:exported="false" />
+
+        <activity android:name=".ui.common.ui.WebViewActivity" />
+
     </application>
 
 </manifest>

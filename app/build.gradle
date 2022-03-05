@@ -83,6 +83,7 @@ dependencies {
     kapt "androidx.hilt:hilt-compiler:$hilt_view_version"
 
     implementation "androidx.paging:paging-runtime:3.0.0"
+    implementation 'com.permissionx.guolindev:permissionx:1.2.2'
 
 
     // 基础依赖包，必须要依赖

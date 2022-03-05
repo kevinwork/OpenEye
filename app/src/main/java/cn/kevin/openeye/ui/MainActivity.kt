@@ -1,15 +1,18 @@
-package cn.kevin.openeye
+package cn.kevin.openeye.ui
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.navigation.*
 import androidx.navigation.fragment.NavHostFragment
+import cn.kevin.openeye.R
 import cn.kevin.openeye.databinding.ActivityMainBinding
 import cn.kevin.openeye.extension.setOnClickListener
 import cn.kevin.openeye.ui.common.ui.BaseActivity
 import cn.kevin.openeye.ui.common.ui.FixFragmentNavigator
 import cn.kevin.openeye.ui.community.CommunityFragment
 import cn.kevin.openeye.ui.home.HomeFragment
+import cn.kevin.openeye.ui.login.LoginActivity
 import cn.kevin.openeye.ui.mine.MineFragment
 import cn.kevin.openeye.ui.notification.NotificationFragment
 import cn.kevin.openeye.ui.search.SearchFragment
@@ -52,7 +55,8 @@ class MainActivity : BaseActivity() {
             navigationBar.ivHomePage,
             navigationBar.ivCommunity,
             navigationBar.ivNotification,
-            navigationBar.ivMine
+            navigationBar.ivMine,
+            navigationBar.ivRelease
 
         ) {
             when (this) {
@@ -71,6 +75,9 @@ class MainActivity : BaseActivity() {
                 navigationBar.ivMine -> {
                     setTabSelection(3)
                     navController.navigate(R.id.mineFragment)
+                }
+                navigationBar.ivRelease -> {
+                    LoginActivity.start(this@MainActivity)
                 }
             }
         }
@@ -161,5 +168,11 @@ class MainActivity : BaseActivity() {
 
     fun getNavController(): NavController {
         return navController
+    }
+
+    companion object {
+        fun start(context: Context) {
+            context.startActivity(Intent(context, MainActivity::class.java))
+        }
     }
 }

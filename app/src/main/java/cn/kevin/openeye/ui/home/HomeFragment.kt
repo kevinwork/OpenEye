@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
-import cn.kevin.openeye.MainActivity
 import cn.kevin.openeye.R
 import cn.kevin.openeye.databinding.FragmentHomeBinding
 import cn.kevin.openeye.extension.setOnClickListener

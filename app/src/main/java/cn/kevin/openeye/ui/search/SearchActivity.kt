@@ -1,7 +1,6 @@
 package cn.kevin.openeye.ui.search
 
 import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -15,16 +14,13 @@ import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import cn.kevin.openeye.MainActivity
 import cn.kevin.openeye.R
 import cn.kevin.openeye.databinding.ActivitySearchBinding
-import cn.kevin.openeye.databinding.FragmentSearchBinding
 import cn.kevin.openeye.extension.*
 import cn.kevin.openeye.ui.common.ui.BaseActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.launch
 
 /**
  * 搜索页面，从主页面跳转过来
